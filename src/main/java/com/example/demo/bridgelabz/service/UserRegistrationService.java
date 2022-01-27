@@ -62,7 +62,7 @@ public class UserRegistrationService implements IUserRegistrationService {
             email.setFrom("bookstoreapplication2120@gmail.com");
             email.setSubject(" User Verification...");
             token = tokenUtil.createToken(userData.getUserId());
-            email.setBody(mailService.getLink("http://localhost:8082/userregistrationservice/verify/" + token));
+            email.setBody(mailService.getLink("http://localhost:8081/userregistrationservice/verify/" + token));
             mailService.send(email.getTo(), email.getSubject(), email.getBody());
             return userData;
         }
